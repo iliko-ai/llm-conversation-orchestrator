@@ -109,12 +109,12 @@ uv run streamlit run app.py
 - Python 3.10+
 - API keys for your chosen LLM providers (OpenAI, Anthropic, Google, Groq, etc.)
 - Environment variables set in `.env` file:
-  - `OPENAI_API_KEY`
-  - `ANTHROPIC_API_KEY`
-  - `GOOGLE_API_KEY`
-  - `GROQ_API_KEY`
-  - `GROK_API_KEY`
-  - `OPENROUTER_API_KEY`
+  - `OPENAI_API_KEY` https://openai.com/api/
+  - `ANTHROPIC_API_KEY` https://console.anthropic.com/
+  - `GOOGLE_API_KEY` https://ai.google.dev/gemini-api/
+  - `GROQ_API_KEY` https://console.groq.com/home
+  - `GROK_API_KEY` https://console.x.ai/
+  - `OPENROUTER_API_KEY` https://openrouter.ai/
 
 ### Install dependencies
 ```bash
