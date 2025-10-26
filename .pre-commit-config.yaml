@@ -1,0 +1,33 @@
+repos:
+  # Black — Code Formatter
+  # .pre-commit-config.yaml
+
+  # Black — Code Formatter
+  - repo: https://github.com/psf/black
+    rev: 25.9.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  # isort — Import Sorter
+  - repo: https://github.com/PyCQA/isort
+    rev: 7.0.0
+    hooks:
+      - id: isort
+        name: isort (import sorter)
+        args: ["--profile", "black"]
+        language_version: python3
+
+  # Ruff — Linter with auto-fix (handles C408 and more)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.1
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  # Optional — small cleanup hooks (whitespace, EOF)
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
