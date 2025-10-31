@@ -147,7 +147,7 @@ def generate_conversation(
             system_prompt = (
                 f"You are a {role_name} chatbot with a {persona_name} personality. "
                 f"You are participating in a multi-speaker discussion. "
-                f"Respond naturally in {output_lang}. "
+                f"Respond naturally in {output_lang} in one sentence. "
                 f"Topic: {sp.get('topic', '')}"
             )
 

@@ -1,13 +1,8 @@
 import streamlit as st
 
-from constants.constants import LANGUAGES, MODELS, PERSONALITIES, ROLE_AVATARS, ROLES
+from constants.constants import LANGUAGES, MODELS, PERSONALITIES, ROLES
 from utils.conversation_generator import generate_conversation
-
-
-def get_role_emoji(role_with_desc: str) -> str:
-    base = role_with_desc.split(" - ")[0] if role_with_desc else ""
-    return ROLE_AVATARS.get(base, "🤖")
-
+from utils.tools import get_role_emoji
 
 topic = None
 history = None
@@ -120,7 +115,7 @@ if st.session_state["speaker_num_confirmed"]:
                 st.session_state.history = []
                 for speaker in speakers:
                     if speaker["initial"]:
-                        # ✅ store plain names only
+                        # store plain names only
                         st.session_state.history.append(
                             (speaker["name"], speaker["initial"])
                         )
@@ -128,7 +123,7 @@ if st.session_state["speaker_num_confirmed"]:
             st.rerun()
 
     else:
-        # ✅ Only show speaker info if chat hasn't started yet
+        # Only show speaker info if chat hasn't started yet
         if "show_history" not in st.session_state:
             st.session_state["show_history"] = False
 
@@ -148,13 +143,13 @@ if st.session_state["speaker_num_confirmed"]:
                 )
                 st.divider()
 
-            # ✅ Button to start conversation (and hide summary)
+            # Button to start conversation (and hide summary)
             if st.button("Start Conversation"):
                 st.session_state["show_history"] = True
                 st.rerun()
 
         else:
-            # ✅ Conversation mode – hide speaker info
+            # Conversation mode – hide speaker info
             history = generate_conversation(
                 st.session_state["speakers"],
                 rounds=st.session_state["num_rounds"],
